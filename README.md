@@ -1,5 +1,5 @@
 # TaskCanceledFunctionApp
-Repros the [TaskCanceledException](https://github.com/Azure/azure-functions-host/issues/5216) when reading from a Service Bus Queue from an Azure Function
+Repros the [Azure Functions throw TaskCanceledException #5216](https://github.com/Azure/azure-functions-host/issues/5216) when reading from a Service Bus Queue from an Azure Function
 
 This sample writes to a Service Bus Queue via a Timer Trigger and reads from the queue via a Queue Trigger.
 
@@ -26,3 +26,8 @@ Exception thrown: 'System.Threading.Tasks.TaskCanceledException' in System.Priva
 * Azure Functions Runtime `func -v` returns `3.0.2009`
 * Visual Studio `16.5.0 Preview 1.0`
 * Implemented this workaround [Debug startup fails "no Function runtime available" #5145](https://github.com/Azure/azure-functions-host/issues/5145)
+
+## Expected Behavior?
+Source for [MetricsEventManager.cs](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Diagnostics/MetricsEventManager.cs) specifically [these lines](https://github.com/Azure/azure-functions-host/blob/52a204eeb1b7d27d607b88a36c980555ba49b2bc/src/WebJobs.Script.WebHost/Diagnostics/MetricsEventManager.cs#L366-L370) specifically eat the exception. 
+
+Thus, this may be the expected behavior. The exceptions are noted in the debugger, but exection continues, no harm, no foul.
