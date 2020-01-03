@@ -14,6 +14,6 @@ This successfully reproduces the TaskCanceledException for me. See ReadMe for mo
 1. Open in Visual Studio and Run
 
 ## Version Information
-* func -v returns `3.0.2009`
+* Azure Functions Runtime `func -v` returns `3.0.2009`
 * Visual Studio `16.5.0 Preview 1.0`
 * Implemented this workaround [Debug startup fails "no Function runtime available" #5145](https://github.com/Azure/azure-functions-host/issues/5145)
