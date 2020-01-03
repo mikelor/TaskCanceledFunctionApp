@@ -9,7 +9,12 @@ This successfully reproduces the TaskCanceledException for me. See ReadMe for mo
 
 This sample will cause the following Exception to be thrown on every ReadQueueFunction invocation.
 
-`Exception thrown: 'System.Threading.Tasks.TaskCanceledException' in System.Private.CoreLib.dll ("A task was canceled.")`
+```
+Exception thrown: 'System.Threading.Tasks.TaskCanceledException' in System.Private.CoreLib.dll: 'A task was canceled.'
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.WebJobs.Script.WebHost.Diagnostics.MetricsEventManager.FunctionActivityTracker.<<-ctor>b__10_0>d.MoveNext() in C:\azure-functions-host\src\WebJobs.Script.WebHost\Diagnostics\MetricsEventManager.cs:line 363
+```
 
 ## Instructions
 1. `az login` to your Azure Subscription
