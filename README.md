@@ -9,7 +9,7 @@ This successfully reproduces the TaskCanceledException for me. See ReadMe for mo
 
 ## Instructions
 1. `az login` to your Azure Subscription
-1. `.\createResourceGroup.sh` to build Azure Resource Group
+1. Execute `.\createResourceGroup.sh` to build Azure Resource Group
 1. Update your `local.settings.json` with the connection string returned from script
 1. Open in Visual Studio and Run
 
